@@ -6,11 +6,13 @@ use App\Http\Resources\ListingCollection;
 use App\Http\Resources\ListingResource;
 use App\Repositories\ListingRepository;
 use App\Http\Requests\SearchListingRequest;
+use App\Repositories\SearchRepository;
 
 class ListingController extends APIController
 {
     public function __construct(
-        protected ListingRepository $listings
+        protected ListingRepository $listings,
+        protected SearchRepository $searches
     ) {}
     
     /**
@@ -20,11 +22,18 @@ class ListingController extends APIController
      */
     public function index(SearchListingRequest $request)
     {
-        $filters = $request->validated();
+        try {
+            $filters = $request->validated();
+            $listings = $this->listings->getAllListingsPaginated($filters);
+ 
+            $this->searches->createNewSearch($filters);
 
-        return $this->success(
-            new ListingCollection($this->listings->getAllListingsPaginated($filters))
-        );
+            return $this->success(
+                new ListingCollection($listings)
+            );
+        } catch (\Exception $e) {
+            return $this->fail($e->getMessage());
+        }        
     }
 
     // add doc
@@ -36,8 +45,7 @@ class ListingController extends APIController
             );
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             return $this->fail($e->getMessage());
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             return $this->fail($e->getMessage());
         }
     }
