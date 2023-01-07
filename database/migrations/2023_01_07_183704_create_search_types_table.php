@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('search_types', function (Blueprint $table) {
-            $table->id();
+        Schema::create('search_type', function (Blueprint $table) {
             $table->foreignId('search_id')->constrained('searches')->onDelete('cascade');
             $table->foreignId('type_id')->constrained('types')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('search_types');
+        Schema::dropIfExists('search_type');
     }
 };

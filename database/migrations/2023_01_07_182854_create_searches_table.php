@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('searches', function (Blueprint $table) {
             $table->id();
-            $table->string('ip');
             $table->unsignedInteger('price_min')->nullable();
             $table->unsignedInteger('price_max')->nullable();
             $table->unsignedInteger('square_meters_min')->nullable();
