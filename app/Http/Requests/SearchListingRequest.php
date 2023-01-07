@@ -25,7 +25,7 @@ class SearchListingRequest extends FormRequest
     {
         return [
             'location' => ['array'],
-            'location.*' => ['numeric'],
+            'location.*' => ['numeric', 'exists:locations,id'],
         ];
     }
 }
