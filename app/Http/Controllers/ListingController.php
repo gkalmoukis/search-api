@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ListingCollection;
 use App\Http\Resources\ListingResource;
 use App\Repositories\ListingRepository;
-use Illuminate\Http\Request;
+use App\Http\Requests\SearchListingRequest;
 
 class ListingController extends APIController
 {
@@ -18,10 +18,12 @@ class ListingController extends APIController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SearchListingRequest $request)
     {
+        $filters = $request->validated();
+
         return $this->success(
-            new ListingCollection($this->listings->getAllListingsPaginated())
+            new ListingCollection($this->listings->getAllListingsPaginated($filters))
         );
     }
 

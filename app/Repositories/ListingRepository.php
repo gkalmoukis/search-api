@@ -10,11 +10,12 @@ class ListingRepository
         protected Listing $model
     ) {}
 
-    public function getAllListingsPaginated()
+    public function getAllListingsPaginated($filters = [])
     {
         return $this->model
             ->with('location')
             ->with('types')
+            ->filterBy($filters)
             ->paginate();
     }
 
