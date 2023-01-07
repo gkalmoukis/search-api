@@ -27,10 +27,13 @@ class SearchListingRequest extends FormRequest
         return [
             'location' => ['array'],
             'location.*' => ['numeric', 'exists:locations,id'],
+            'type' => ['array'],
+            'type.*' => ['numeric', 'exists:types,id'],
             'priceMin' => ['numeric', 'min:10', 'max:10000000'],
             'priceMax' => ['numeric', 'min:10', 'max:10000000'],
             'squareMetersMin' => ['numeric', 'min:20', 'max:10000'],
             'squareMetersMax' => ['numeric', 'min:20', 'max:10000'],
+            'availability' => [new Enum(\App\Enums\ListingAvailabilityEnum::class)],
             'availability' => [new Enum(\App\Enums\ListingAvailabilityEnum::class)],
         ];
     }
