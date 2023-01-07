@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Casts\PriceCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Enums\ListingAvailabilityEnum;
@@ -15,8 +14,7 @@ class Listing extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'availability' => ListingAvailabilityEnum::class,
-        'price' => PriceCast::class
+        'availability' => ListingAvailabilityEnum::class
     ];
 
     public function location()
