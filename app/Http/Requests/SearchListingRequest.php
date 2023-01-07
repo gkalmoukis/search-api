@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Enum;
 
 class SearchListingRequest extends FormRequest
 {
@@ -30,6 +31,7 @@ class SearchListingRequest extends FormRequest
             'priceMax' => ['numeric', 'min:10', 'max:10000000'],
             'squareMetersMin' => ['numeric', 'min:20', 'max:10000'],
             'squareMetersMax' => ['numeric', 'min:20', 'max:10000'],
+            'availability' => [new Enum(\App\Enums\ListingAvailabilityEnum::class)],
         ];
     }
 }
