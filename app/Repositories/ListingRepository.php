@@ -10,12 +10,12 @@ class ListingRepository
         protected Listing $model
     ) {}
 
-    public function getAllListings()
+    public function getAllListingsPaginated()
     {
         return $this->model
             ->with('location')
             ->with('types')
-            ->get();
+            ->paginate();
     }
 
     public function getListingsById($id)

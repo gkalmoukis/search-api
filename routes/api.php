@@ -18,5 +18,6 @@ Route::group([
     "prefix" => "listings" 
 ], function (){
     Route::get('/', [\App\Http\Controllers\ListingController::class, 'index']);
+    Route::get('/{id}', [\App\Http\Controllers\ListingController::class, 'show']);
 });
 
