@@ -28,6 +28,8 @@ class SearchListingRequest extends FormRequest
             'location.*' => ['numeric', 'exists:locations,id'],
             'priceMin' => ['numeric', 'min:10', 'max:10000000'],
             'priceMax' => ['numeric', 'min:10', 'max:10000000'],
+            'squareMetersMin' => ['numeric', 'min:20', 'max:10000'],
+            'squareMetersMax' => ['numeric', 'min:20', 'max:10000'],
         ];
     }
 }
