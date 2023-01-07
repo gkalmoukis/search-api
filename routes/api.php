@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group([
+    "prefix" => "content" 
+], function (){
+    Route::get('/locations', [\App\Http\Controllers\ContentController::class, 'getLocations']);
+});
+
 
 Route::group([
     "prefix" => "listings" 
