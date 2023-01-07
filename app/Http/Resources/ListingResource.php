@@ -16,8 +16,8 @@ class ListingResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "location" => $this->whenLoaded('location'),
-            "types" => $this->whenLoaded('types'),
+            "location" => new LocationResource($this->whenLoaded('location')),
+            "types" => new TypeCollection($this->whenLoaded('types')),
             "price" => $this->price,
             "square_meters" => $this->square_meters,
             "availability" => $this->availability,
