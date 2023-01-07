@@ -26,6 +26,8 @@ class SearchListingRequest extends FormRequest
         return [
             'location' => ['array'],
             'location.*' => ['numeric', 'exists:locations,id'],
+            'priceMin' => ['numeric', 'min:10', 'max:10000000'],
+            'priceMax' => ['numeric', 'min:10', 'max:10000000'],
         ];
     }
 }
