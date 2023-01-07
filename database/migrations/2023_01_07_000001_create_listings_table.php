@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('location_id')->constrained('locations');
-            $table->integer('price');
-            $table->integer('square_meters');
+            $table->unsignedInteger('price');
+            $table->unsignedInteger('square_meters');
             $table->string('availability');
             $table->timestamps();
         });
