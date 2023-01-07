@@ -14,7 +14,7 @@ class ListingSeeder extends Seeder
      */
     public function run()
     {
-        $locations = \App\Models\Location::factory()
+        \App\Models\Location::factory()
             ->count(10)
             ->has(\App\Models\Listing::factory()->count(10))
             ->create();
