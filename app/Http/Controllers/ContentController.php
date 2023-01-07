@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\LocationCollection;
+use App\Http\Resources\{
+    LocationCollection,
+    TypeCollection
+};
 use App\Repositories\ContentRepository;
 use Illuminate\Http\Request;
 
@@ -16,6 +19,13 @@ class ContentController extends APIController
     {
         return $this->success(
             new LocationCollection($this->contents->getAllLocations())
+        );
+    }
+
+    public function getTypes()
+    {
+        return $this->success(
+            new TypeCollection($this->contents->getAllTypes())
         );
     }
 
