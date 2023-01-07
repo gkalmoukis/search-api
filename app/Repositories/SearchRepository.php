@@ -17,11 +17,11 @@ class SearchRepository
             DB::beginTransaction();
             
             $newSearch = $this->model->create([
-                "price_min" => $attributes['priceMin'],
-                "price_max" => $attributes['priceMax'],
-                "square_meters_min" => $attributes['squareMetersMin'],
-                "square_meters_max" => $attributes['squareMetersMax'],
-                "availability" => $attributes['availability']
+                "price_min" => $attributes['priceMin'] ?? null,
+                "price_max" => $attributes['priceMax'] ?? null,
+                "square_meters_min" => $attributes['squareMetersMin'] ?? null,
+                "square_meters_max" => $attributes['squareMetersMax'] ?? null,
+                "availability" => $attributes['availability'] ?? null
             ]);
 
             if(! empty($attributes['location'])){
