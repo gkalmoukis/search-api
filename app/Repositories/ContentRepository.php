@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\{
     Location,
 };
+use App\Enums\ListingAvailabilityEnum;
 
 class ContentRepository
 {
@@ -15,5 +16,10 @@ class ContentRepository
     public function getAllLocations()
     {
         return $this->locations->all();
+    }
+
+    public function getAllAvailabilities()
+    {
+        return ListingAvailabilityEnum::cases();
     }
 }

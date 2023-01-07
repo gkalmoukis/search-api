@@ -17,6 +17,7 @@ Route::group([
     "prefix" => "content" 
 ], function (){
     Route::get('/locations', [\App\Http\Controllers\ContentController::class, 'getLocations']);
+    Route::get('/availabilities', [\App\Http\Controllers\ContentController::class, 'getAvailabilities']);
 });
 
 

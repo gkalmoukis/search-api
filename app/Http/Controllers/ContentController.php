@@ -18,4 +18,9 @@ class ContentController extends APIController
             new LocationCollection($this->contents->getAllLocations())
         );
     }
+
+    public function getAvailabilities()
+    {
+        return $this->success($this->contents->getAllAvailabilities());
+    }
 }
