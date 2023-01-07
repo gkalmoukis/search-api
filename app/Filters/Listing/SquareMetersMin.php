@@ -6,12 +6,9 @@ use App\Contracts\FilterContract;
 
 class SquareMetersMin implements FilterContract
 {
-    protected $query;
-
-    public function __construct($query)
-    {
-        $this->query = $query;
-    }
+    public function __construct(
+        protected $query
+    ) {}
 
     public function handle($value): void
     {

@@ -4,18 +4,11 @@ namespace App\Services;
 
 class FilterBuilderService
 {
-    protected $query;
-
-    protected $filters;
-
-    protected $namespace;
-
-    public function __construct($query, $filters, $namespace)
-    {
-        $this->query = $query;
-        $this->filters = $filters;
-        $this->namespace = $namespace;
-    }
+    public function __construct(
+        protected $query,
+        protected $filters,
+        protected $namespace
+    ) { }
 
     public function apply()
     {
