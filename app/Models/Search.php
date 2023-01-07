@@ -13,11 +13,11 @@ class Search extends Model
 
     public function locations()
     {
-        return $this->belongsToMany(Location::class);
+        return $this->belongsToMany(Location::class, 'search_location');
     }
 
     public function types()
     {
-        return $this->belongsToMany(Location::class);
+        return $this->belongsToMany(Type::class, 'search_type');
     }
 }
