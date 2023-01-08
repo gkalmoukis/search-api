@@ -4,7 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Imports\{
-    LocationImport
+    LocationImport,
+    TypeImport
 };
 
 class ImportCommand extends Command
@@ -31,6 +32,8 @@ class ImportCommand extends Command
     public function handle()
     {
         (new LocationImport)->withOutput($this->output)->import(storage_path()."/app/data/"."listings.xlsx");
+        (new TypeImport)->withOutput($this->output)->import(storage_path()."/app/data/"."listings.xlsx");
+        
         return Command::SUCCESS;
     }
 }
