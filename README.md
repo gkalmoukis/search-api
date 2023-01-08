@@ -45,6 +45,17 @@ Add database connection credentials in the `.env` file
 + DB_PASSWORD=<password>
 ```
 
+Then migrate database schema into yours with `migrate` command.
+```
+php artisan migrate
+```
+
+### Seed data
+
+To seed dummy data you can use `php artisan db:seed` command.
+
+To import data from excel you can use `php artisan api:import` command.
+
 ### Serve application
 
 #### Local development enviroment
