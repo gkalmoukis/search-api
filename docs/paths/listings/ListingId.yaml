@@ -1,0 +1,15 @@
+get:
+  tags:
+    - Listings
+  summary: "Find Listings by id"
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: number
+  responses:
+    "200":
+      content:
+        application/json:
+          schema: {}

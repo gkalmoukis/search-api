@@ -1,0 +1,15 @@
+openapi: 3.0.0
+info:
+  title: "Dead Simple Search API"
+  contact:
+    email: giorgoskalmoukis@gmail.com
+  version: 1.0.0
+servers:
+  - url: "http://127.0.0.1:8000/api"
+    description: Local
+paths:
+  /listings:
+    $ref: "./paths/listings/Listing.yaml"
+  /listings/{id}:
+    $ref: "./paths/listings/ListingId.yaml"
+    

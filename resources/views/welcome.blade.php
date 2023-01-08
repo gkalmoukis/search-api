@@ -30,9 +30,9 @@
                             Environment: {{config('app.env')}}  <br> Version: {{shell_exec('git describe --always --tags --dirty')}} <br> Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                         </div>
 
-                        <!-- <div class="row">
+                        <div class="row">
                             <a href="/docs">Documentation</a>
-                        </div> -->
+                        </div>
                     </div>
 
                 </div>

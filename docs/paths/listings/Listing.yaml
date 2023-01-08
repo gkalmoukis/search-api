@@ -1,0 +1,53 @@
+get:
+  tags:
+    - Listings
+  summary: "Get all listings"
+  parameters:
+    - name: priceMin
+      in: query
+      required: false
+      schema:
+        type: integer
+    - name: priceMax
+      in: query
+      required: false
+      schema:
+        type: integer
+    - name: squareMetersMin
+      in: query
+      required: false
+      schema:
+        type: integer
+    - name: squareMetersMax
+      in: query
+      required: false
+      schema:
+        type: integer
+    - name: availability
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: 
+          - asc
+          - desc
+    - name: location
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: number
+    - name: type
+      in: query
+      required: false
+      schema:
+        type: array
+        items:
+          type: number  
+  responses:
+    "200":
+      description: "ok"
+      content:
+        application/json:
+          schema: {}
