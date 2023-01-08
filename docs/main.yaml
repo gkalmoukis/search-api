@@ -12,4 +12,9 @@ paths:
     $ref: "./paths/listings/Listing.yaml"
   /listings/{id}:
     $ref: "./paths/listings/ListingId.yaml"
-    
+  /content/locations:
+    $ref: "./paths/content/Location.yaml"
+  /content/types:
+    $ref: "./paths/content/Type.yaml"
+  /content/availabilities:
+    $ref: "./paths/content/Availability.yaml"
