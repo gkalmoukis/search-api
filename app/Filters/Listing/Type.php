@@ -13,7 +13,7 @@ class Type implements FilterContract
     public function handle($value): void
     {
         $this->query->whereHas('types', function($type) use ($value){
-            $type->where('type_id', $value);
+            $type->whereIn('type_id', $value);
         }); 
     }
 }
